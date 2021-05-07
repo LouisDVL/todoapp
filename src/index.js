@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import { TaskProvider } from "./taskContext.js"
+import ErrorBoundary from "./ErrorBoundary";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundary>
+      <TaskProvider>
+        <App />
+      </TaskProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
