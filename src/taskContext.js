@@ -3,7 +3,7 @@ import taskReducer from "./TaskReducer";
 
 export const TaskContext = React.createContext(null);
 
-let initialTask;
+let initialTask = [];
 
 export function TaskProvider(props) {
     const [task, dispatch] = useReducer(taskReducer, initialTask);

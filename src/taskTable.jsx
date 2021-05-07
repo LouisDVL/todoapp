@@ -4,7 +4,7 @@ export default function TaskTable() {
     const {task, dispatch} = useTask();
 
     function displayTask() {
-        if(!task) {
+        if(task === 0) {
             return <td>You have no Tasks!</td>
         }
     }
