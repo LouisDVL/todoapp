@@ -12,11 +12,12 @@ export default function TaskReducer(tasklist, action) {
             return newArray;
         }
         case "markCompleted": {
-            let { id } = action;
-            const newArray = tasklist.map((task) => task.id === id
+            let newArray = []
+            const { id } = action;
+            newArray = tasklist.map((task) => task.id === id
             ? {...task, isComplete: true}
             : task
-            )
+            );
             return newArray;
         }
         default:

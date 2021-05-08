@@ -7,6 +7,7 @@ export default function InputText(){
 
     function AddTask() {
         dispatch({type:"add", name, id : idCount});
+        setName('');
         countDispatch({type: "Increment"});
     }
 
@@ -21,7 +22,7 @@ export default function InputText(){
     return (
         <>
             <div className="int-group mb-3">
-                <input type="text" className="form-control" placeholder="Task" value={name.value} onChange={e => handleChange(e)}/>
+                <input type="text" className="form-control" placeholder="Task" value={name} onChange={e => handleChange(e)}/>
             </div>
             <button type="button" className="btn btn-success" onClick={AddTask}>Add Task</button>
             <button type="button" className="mr-3 btn btn-danger" onClick={clearTask}>Clear Task</button>

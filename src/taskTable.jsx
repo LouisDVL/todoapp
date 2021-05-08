@@ -8,9 +8,8 @@ export default function TaskTable() {
         dispatch({type: "deleteTask", id: taskId});
     }
 
-    async function markCompleted(taskId) {
-        dispatch({type: "markCompleted", id: taskId});
-        console.log(task);
+    function markCompleted(taskId) {
+        dispatch({type: "markCompleted", id: taskId})
     }
 
     function displayTask(task) {
@@ -26,7 +25,12 @@ export default function TaskTable() {
             </tr>
         )
     }
-    
+
+    function filterTask() {
+        const result = task.filter(task => task.isComplete === false);
+        return result;
+    }
+
     return (
         <>
             <table className="table">
@@ -40,7 +44,7 @@ export default function TaskTable() {
                 <tbody>
                     {taskNum === 0 
                         ? <tr><td>You have no tasks</td></tr>
-                        : task.map(displayTask)
+                        : filterTask().map(displayTask)
                     }
                 </tbody>
             </table>
